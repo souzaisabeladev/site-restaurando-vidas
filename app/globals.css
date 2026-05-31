@@ -1,15 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fbfaff;
-  --foreground: #0f0926;
-  --primary: #6d28d9;
+  --background: #ffffff;          /* Branco puro */
+  --foreground: #1c1917;          /* Texto escuro (tom de pedra/grafite) */
+  --primary: #dc2626;             /* O Vermelho vivo dos botões e destaques (red-600) */
+  --primary-foreground: #ffffff;  /* Texto branco dentro do botão vermelho */
+  --muted: #fbf9f6;               /* O Bege/Creme bem suave para fundos de seções */
+  --muted-foreground: #78716c;    /* Texto cinza/bege para subtítulos */
+  --border: #e7e5e4;              /* Bordas suaves */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
