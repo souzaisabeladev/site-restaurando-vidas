@@ -68,7 +68,7 @@ function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-300 hover:text-accent ${
+                className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${
                   isScrolled ? "text-foreground" : "text-primary-foreground"
                 }`}
               >
@@ -273,7 +273,7 @@ function AboutSection() {
                     <value.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-foreground">{value.title}</h3>
+                    <value.title className="font-bold text-foreground" />
                     <p className="text-muted-foreground text-sm">
                       {value.description}
                     </p>
@@ -295,7 +295,7 @@ function ServicesSection() {
       icon: Home,
       title: "Acolhimento",
       description:
-        "Recebemos cada pessoa com amor e dignidade, oferecendo um ambiente seguro e acolhedor para o início da jornada de recuperação.",
+        "Recebemos cada pessoa com amor e dignidade, offering um ambiente seguro e acolhedor para o início da jornada de recuperação.",
       color: "bg-primary",
     },
     {
@@ -392,7 +392,7 @@ function GallerySection() {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-accent font-semibold uppercase tracking-widest text-sm">
-            Nossa Galeria
+            Nuestra Galeria
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-4 mb-6">
             Momentos de <span className="text-primary">transformação</span>
@@ -483,7 +483,7 @@ function GallerySection() {
   );
 }
 
-// Testimonials Section
+// Testimonials Section - Ajustada com fundo branco e cards em bg-muted conforme o v0
 function TestimonialsSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -534,22 +534,22 @@ function TestimonialsSection() {
   }, []);
 
   return (
-    <section id="depoimentos" className="py-20 lg:py-32 bg-primary">
+    <section id="depoimentos" className="py-20 lg:py-32 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-accent font-semibold uppercase tracking-widest text-sm">
+          <span className="text-primary font-semibold uppercase tracking-widest text-sm">
             Depoimentos
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary-foreground mt-4 mb-6">
-            Histórias de <span className="text-accent">esperança</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-4 mb-6">
+            Histórias de <span className="text-primary">esperança</span>
           </h2>
-          <p className="text-primary-foreground/80 text-lg">
+          <p className="text-muted-foreground text-lg">
             Vidas transformadas que nos inspiram a continuar nossa missão.
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto relative">
-          <div className="bg-card rounded-3xl p-8 md:p-12 shadow-2xl">
+          <div className="bg-muted rounded-3xl p-8 md:p-12 shadow-xl border border-border">
             <div className="text-6xl text-primary/20 font-serif leading-none mb-4">
               &ldquo;
             </div>
@@ -577,7 +577,7 @@ function TestimonialsSection() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prevSlide}
-              className="w-12 h-12 rounded-full bg-primary-foreground/20 hover:bg-primary-foreground/30 text-primary-foreground flex items-center justify-center transition-colors"
+              className="w-12 h-12 rounded-full bg-secondary hover:bg-secondary/80 text-foreground flex items-center justify-center transition-colors border border-border"
               aria-label="Depoimento anterior"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -589,8 +589,8 @@ function TestimonialsSection() {
                   onClick={() => setCurrentSlide(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentSlide
-                      ? "bg-accent w-8"
-                      : "bg-primary-foreground/40"
+                      ? "bg-primary w-8"
+                      : "bg-muted-foreground/30"
                   }`}
                   aria-label={`Ir para depoimento ${index + 1}`}
                 />
@@ -598,7 +598,7 @@ function TestimonialsSection() {
             </div>
             <button
               onClick={nextSlide}
-              className="w-12 h-12 rounded-full bg-primary-foreground/20 hover:bg-primary-foreground/30 text-primary-foreground flex items-center justify-center transition-colors"
+              className="w-12 h-12 rounded-full bg-secondary hover:bg-secondary/80 text-foreground flex items-center justify-center transition-colors border border-border"
               aria-label="Próximo depoimento"
             >
               <ChevronRight className="w-6 h-6" />
@@ -678,7 +678,7 @@ function HelpSection() {
           {[
             { number: "500+", label: "Vidas transformadas" },
             { number: "10+", label: "Anos de história" },
-            { number: "50+", label: "Voluntários activos" },
+            { number: "50+", label: "Voluntários ativos" },
             { number: "100%", label: "Dedicação e amor" },
           ].map((stat, index) => (
             <div
@@ -783,7 +783,7 @@ function ContactSection() {
   );
 }
 
-// Componentes principais adicionados para exportação correta da página
+// Componente Principal
 export default function Page() {
   return (
     <>
@@ -797,31 +797,30 @@ export default function Page() {
         <HelpSection />
         <ContactSection />
       </main>
+
+      {/* Footer Adicionado Conforme Solicitado */}
+      <footer className="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+          <p className="text-sm">
+            &copy; 2026 Restaurando Vidas. Todos os direitos reservados.
+          </p>
+          <p className="text-sm font-medium text-stone-300">
+            Fábrica de Restaurar Vidas - Transformando histórias, renovando
+            esperanças.
+          </p>
+          <p className="text-xs pt-2 text-stone-500">
+            Site criado por{" "}
+            <a
+              href="https://github.com/Isasouzadev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline font-semibold"
+            >
+              @Isasouzadev
+            </a>
+          </p>
+        </div>
+      </footer>
     </>
   );
-
-
-
-  <footer className="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-      <p className="text-sm">
-        &copy; 2026 Restaurando Vidas. Todos os direitos reservados.
-      </p>
-      <p className="text-sm font-medium text-stone-300">
-        Fábrica de Restaurar Vidas - Transformando histórias, renovando
-        esperanças.
-      </p>
-      <p className="text-xs pt-2 text-stone-500">
-        Site criado por{" "}
-        <a
-          href="https://github.com/Isasouzadev"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary hover:underline font-semibold"
-        >
-          @Isasouzadev
-        </a>
-      </p>
-    </div>
-  </footer>;
 }
