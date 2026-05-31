@@ -273,7 +273,7 @@ function AboutSection() {
                     <value.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
-                    <value.title className="font-bold text-foreground" />
+                    <h3 className="font-bold text-foreground">{value.title}</h3>
                     <p className="text-muted-foreground text-sm">
                       {value.description}
                     </p>
