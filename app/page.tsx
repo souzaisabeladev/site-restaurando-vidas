@@ -799,4 +799,29 @@ export default function Page() {
       </main>
     </>
   );
+
+
+
+  <footer className="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+      <p className="text-sm">
+        &copy; 2026 Restaurando Vidas. Todos os direitos reservados.
+      </p>
+      <p className="text-sm font-medium text-stone-300">
+        Fábrica de Restaurar Vidas - Transformando histórias, renovando
+        esperanças.
+      </p>
+      <p className="text-xs pt-2 text-stone-500">
+        Site criado por{" "}
+        <a
+          href="https://github.com/Isasouzadev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary hover:underline font-semibold"
+        >
+          @Isasouzadev
+        </a>
+      </p>
+    </div>
+  </footer>;
 }
