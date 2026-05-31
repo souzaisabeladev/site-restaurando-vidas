@@ -15,12 +15,30 @@ import {
   Mail,
   HandHeart,
   Gift,
-  ArrowUp,
 } from "lucide-react";
 
-// Logo Component
-function Logo({ className = "" }: { className?: string }) {
-  return <img src="/logo.png" alt="Restaurando Vidas" className={className} />;
+// Logo Component integrado com a imagem institucional
+function Logo() {
+  return (
+    <div className="flex items-center gap-3 select-none group">
+      <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-white p-1 shadow-sm transition-all duration-300 group-hover:scale-105">
+        <img
+          src="/logo.png.jpeg"
+          alt="Logo Restaurando Vidas"
+          className="w-full h-full object-contain"
+        />
+      </div>
+
+      <div className="flex flex-col leading-none">
+        <span className="font-serif font-black text-xl tracking-wide text-foreground">
+          Restaurando <span className="text-primary">Vidas</span>
+        </span>
+        <span className="text-[10px] font-sans font-bold tracking-[0.15em] uppercase text-muted-foreground/80 mt-0.5">
+          Fábrica de Restaurar Vidas
+        </span>
+      </div>
+    </div>
+  );
 }
 
 // Header Component
@@ -55,11 +73,8 @@ function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a
-            href="#inicio"
-            className={`${isScrolled ? "text-primary" : "text-primary-foreground"} transition-colors duration-300`}
-          >
-            <Logo className="h-14 w-auto" />
+          <a href="#inicio" className="transition-colors duration-300">
+            <Logo />
           </a>
 
           {/* Desktop Navigation */}
@@ -198,7 +213,7 @@ function HeroSection() {
   );
 }
 
-// About Section
+// About Section - Integrado com a Imagem Institucional da Equipe
 function AboutSection() {
   const values = [
     {
@@ -222,24 +237,55 @@ function AboutSection() {
     <section id="sobre" className="py-20 lg:py-32 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image Side */}
+          {/* Lado do Logotipo Oficial / Identidade Visual */}
           <div className="relative">
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-secondary shadow-2xl">
-              <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Heart className="w-20 h-20 text-primary mx-auto mb-4" />
-                  <p className="text-muted-foreground">
-                    Imagem da equipe acolhedora
-                  </p>
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-white p-8 shadow-2xl flex flex-col justify-between relative group border border-secondary select-none">
+              {/* Sutil Gradiente de Fundo do Card */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+
+              {/* Tag Superior */}
+              <div className="relative z-10 flex justify-between items-start">
+                <div className="bg-primary/10 text-primary px-4 py-2 rounded-xl border border-primary/10 text-xs font-semibold tracking-wide uppercase">
+                  Identidade Institucional
+                </div>
+                <div className="flex -space-x-2">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs font-bold">
+                    ✓
+                  </div>
+                  <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent text-xs font-bold">
+                    ❤
+                  </div>
                 </div>
               </div>
+
+              {/* Centro: Logotipo Exibido com Destaque */}
+              <div className="relative z-10 flex flex-col items-center justify-center text-center my-auto py-6">
+                <div className="w-48 h-48 md:w-56 md:h-56 transition-transform duration-500 group-hover:scale-105">
+                  <img
+                    src="/logo.png.jpeg"
+                    alt="Logo Oficial Restaurando Vidas"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* Base com Mensagem de Compromisso */}
+              <div className="relative z-10 bg-secondary/80 backdrop-blur-sm p-4 rounded-2xl border border-border flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shrink-0">
+                  <HandHeart className="w-4 h-4 text-primary-foreground" />
+                </div>
+                <p className="text-foreground text-xs font-medium leading-relaxed">
+                  Compromisso com remoções, internações e amparo profissional
+                  humanizado todos os dias.
+                </p>
+              </div>
             </div>
-            {/* Decorative element */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-3xl -z-10" />
-            <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/10 rounded-2xl -z-10" />
+            {/* Elementos decorativos externos */}
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-3xl -z-10" />
+            <div className="absolute -top-6 -left-6 w-24 h-24 bg-accent/5 rounded-2xl -z-10" />
           </div>
 
-          {/* Content Side */}
+          {/* Lado do Conteúdo de Texto */}
           <div>
             <span className="text-accent font-semibold uppercase tracking-widest text-sm">
               Sobre Nós
@@ -257,12 +303,11 @@ function AboutSection() {
             </p>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
               Acreditamos que toda pessoa, independente de sua história, merece
-              uma segunda chance. Com amor, dedicação e profissionalismo,
-              trabalhamos diariamente para transformar vidas e reconstruir
-              famílias.
+              uma segunda chance. Com nossa equipe dedicada e focada no amparo
+              profissional, trabalhamos diariamente para transformar vidas e
+              reconstruir famílias.
             </p>
-
-            {/* Values */}
+            {/* Valores */}
             <div className="grid gap-4">
               {values.map((value, index) => (
                 <div
@@ -295,7 +340,7 @@ function ServicesSection() {
       icon: Home,
       title: "Acolhimento",
       description:
-        "Recebemos cada pessoa com amor e dignidade, offering um ambiente seguro e acolhedor para o início da jornada de recuperação.",
+        "Recebemos cada pessoa com amor e dignidade, oferecendo um ambiente seguro e acolhedor para o início da jornada de recuperação.",
       color: "bg-primary",
     },
     {
@@ -392,7 +437,7 @@ function GallerySection() {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-accent font-semibold uppercase tracking-widest text-sm">
-            Nuestra Galeria
+            Nossa Galeria
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-4 mb-6">
             Momentos de <span className="text-primary">transformação</span>
@@ -483,7 +528,7 @@ function GallerySection() {
   );
 }
 
-// Testimonials Section - Ajustada com fundo branco e cards em bg-muted conforme o v0
+// Testimonials Section
 function TestimonialsSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -506,7 +551,7 @@ function TestimonialsSection() {
       name: "Pedro Oliveira",
       role: "Ex-residente, recuperado há 5 anos",
       content:
-        "Passei 15 anos nas drogas. Perdi tudo: família, emprego, dignidade. Na Restaurando Vidas encontrei pessoas que acreditaram em mim quando eu mesmo não acreditava. Hoje ajudo outras pessoas a encontrarem o mesmo caminho.",
+        "Passei 15 anos nas drogas. Perdi tudo: família, emprego, dignidade. Na Restaurando Vidas encontrei pessoas que acreditaram in mim quando eu mesmo não acreditava. Hoje ajudo outras pessoas a encontrarem o mesmo caminho.",
       initials: "PO",
     },
     {
@@ -678,16 +723,16 @@ function HelpSection() {
           {[
             { number: "500+", label: "Vidas transformadas" },
             { number: "10+", label: "Anos de história" },
-            { number: "50+", label: "Voluntários ativos" },
+            { number: "50+", label: "Voluntários activos" },
             { number: "100%", label: "Dedicação e amor" },
           ].map((stat, index) => (
             <div
               key={index}
               className="text-center p-6 bg-card rounded-2xl shadow-lg"
             >
-              <p className="text-3xl md:text-4xl font-bold text-primary">
+              <div className="text-3xl md:text-4xl font-bold text-primary">
                 {stat.number}
-              </p>
+              </div>
               <p className="text-muted-foreground text-sm mt-2">{stat.label}</p>
             </div>
           ))}
@@ -758,22 +803,15 @@ function ContactSection() {
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="flex gap-4 mt-8">
+            {/* WhatsApp Action Card Premium */}
+            <div className="mt-10">
               <a
                 href="https://wa.me/5511990089152"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-14 h-14 rounded-full bg-green-600 hover:bg-green-700 text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
-                aria-label="WhatsApp"
+                className="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-xl"
               >
-                <svg
-                  className="w-7 h-7"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.24" />
-                </svg>
+                Chamar no WhatsApp
               </a>
             </div>
           </div>
@@ -783,7 +821,7 @@ function ContactSection() {
   );
 }
 
-// Componente Principal
+// Main Page Export
 export default function Page() {
   return (
     <>
@@ -797,30 +835,6 @@ export default function Page() {
         <HelpSection />
         <ContactSection />
       </main>
-
-      {/* Footer Adicionado Conforme Solicitado */}
-      <footer className="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-          <p className="text-sm">
-            &copy; 2026 Restaurando Vidas. Todos os direitos reservados.
-          </p>
-          <p className="text-sm font-medium text-stone-300">
-            Fábrica de Restaurar Vidas - Transformando histórias, renovando
-            esperanças.
-          </p>
-          <p className="text-xs pt-2 text-stone-500">
-            Site criado por{" "}
-            <a
-              href="https://github.com/Isasouzadev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline font-semibold"
-            >
-              @Isasouzadev
-            </a>
-          </p>
-        </div>
-      </footer>
     </>
   );
 }
